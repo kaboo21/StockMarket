@@ -19,10 +19,7 @@ namespace StockMarket.Controllers
             _mapper = mapper;
         }
 
-        /// <summary>
-        /// Get alllll
-        /// </summary>
-        /// <returns></returns>
+        
         [HttpGet]
         [Route("lots")]
         public ActionResult<List<LotItemDto>> GetAllLotItems()
