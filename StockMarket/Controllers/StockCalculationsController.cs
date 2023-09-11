@@ -19,6 +19,12 @@ namespace StockMarket.Controllers
             _mapper = mapper;
         }
 
+
+        /// <summary>
+        /// Sale number of Shares
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult<SaleTransactionResultDto> SaleShareTransaction(SaleTransactionRequest request)
         {

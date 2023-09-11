@@ -13,13 +13,17 @@ namespace StockMarket.Controllers
         private readonly ILotItemService _lotItemService;
         private readonly IMapper _mapper;
 
+       
         public LotItemController(ILotItemService lotItemService, IMapper mapper)
         {
             _lotItemService = lotItemService;
             _mapper = mapper;
         }
 
-        
+        /// <summary>
+        /// Get all lots
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("lots")]
         public ActionResult<List<LotItemDto>> GetAllLotItems()
@@ -29,6 +33,11 @@ namespace StockMarket.Controllers
             return Ok(_mapper.Map<List<LotItemDto>>(lots));
         }
 
+        /// <summary>
+        /// Add new lot
+        /// </summary>
+        /// <param name="lotItemRequest"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult AddLotItem(LotItemRequest lotItemRequest)
         {
