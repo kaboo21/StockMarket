@@ -41,6 +41,23 @@ namespace DataAccessLayer.Repositories
 
             return true;
         }
+
+        public LotItemEntity? SaleLotItemNumber(int id, int numberToSale)
+        {
+            var lotDb = _context.LotItems.FirstOrDefault(l => l.Id == id);
+            if (lotDb == null)
+            {
+                return null;
+            }
+
+            lotDb.RemainShareNumber -= numberToSale;
+            var result =_context.LotItems.Update(lotDb).Entity;
+            _context.SaveChanges();
+
+            return result;
+        }
+
+
         public bool Delete(int id)
         {
             var lotDb = _context.LotItems.FirstOrDefault(l => l.Id == id);

@@ -4,7 +4,8 @@ namespace BusinessLogicLayer.Services
 {
     public interface ILotItemService
     {
-        void AddLotItem(LotItem lotItem);
-        List<LotItem> GetAll();
+        void AddLotItem(LotItemModel lotItem);
+        List<LotItemModel> GetAll();
+        SaleShareResultModel SaleShareTransaction(SaleTransactionModel saleTransaction);
     }
 }

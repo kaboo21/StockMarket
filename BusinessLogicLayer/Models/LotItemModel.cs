@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicLayer.Models
 {
-    public class LotItem
+    public class LotItemModel
     {
         public int? Id { get; set; }
         public int ShareNumber { get; set; }

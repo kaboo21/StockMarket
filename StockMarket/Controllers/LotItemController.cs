@@ -19,6 +19,10 @@ namespace StockMarket.Controllers
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Get alllll
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("lots")]
         public ActionResult<List<LotItemDto>> GetAllLotItems()
@@ -31,7 +35,7 @@ namespace StockMarket.Controllers
         [HttpPost]
         public ActionResult AddLotItem(LotItemRequest lotItemRequest)
         {
-            var lotToAdd = _mapper.Map<LotItem>(lotItemRequest);
+            var lotToAdd = _mapper.Map<LotItemModel>(lotItemRequest);
 
             _lotItemService.AddLotItem(lotToAdd);
 

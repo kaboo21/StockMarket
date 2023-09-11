@@ -10,14 +10,15 @@ namespace StockMarket.Profiles
         public LotItemProfile()
         {
             //TSource, TDestination
-            CreateMap<LotItem, LotItemEntity>()
+            CreateMap<LotItemModel, LotItemEntity>()
                 .ForMember(r => r.RemainShareNumber, o => o.MapFrom(i => i.ShareNumber));
+            CreateMap<LotItemEntity, LotItemModel>();
+            CreateMap<LotItemModel, LotItemDto>();
+            CreateMap<LotItemRequest, LotItemModel>();
 
-            CreateMap<LotItemEntity, LotItem>();
-
-            CreateMap<LotItem, LotItemDto>();
-
-            CreateMap<LotItemRequest, LotItem>();
+            //Stock calculations
+            CreateMap<SaleTransactionRequest, SaleTransactionModel>();
+            CreateMap<SaleShareResultModel, SaleTransactionResultDto>();
         }
     }
 }

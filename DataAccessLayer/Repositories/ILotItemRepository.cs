@@ -8,6 +8,7 @@ namespace DataAccessLayer.Repositories
         bool Delete(int id);
         List<LotItemEntity> GetAll();
         LotItemEntity GetById(int id);
+        LotItemEntity? SaleLotItemNumber(int id, int numberToSale);
         bool Update(LotItemEntity lot);
     }
 }
