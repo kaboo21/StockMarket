@@ -7,6 +7,6 @@
         public decimal RamainSharesPrice { get; set; }
         public decimal TotalSaleResult { get; set; }
 
-        public bool IsCompleted { get; set; }
+        public bool IsFailed { get; set; }
     }
 }

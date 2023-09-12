@@ -38,6 +38,7 @@ namespace BusinessLogicLayer.Services
 
             if (saleTransaction.ShareNumber > totalShareNumber)
             {
+                result.IsFailed = true;
                 return result;
             }
 

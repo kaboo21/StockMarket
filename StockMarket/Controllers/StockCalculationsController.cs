@@ -31,7 +31,12 @@ namespace StockMarket.Controllers
             var saleTransaction = _mapper.Map<SaleTransactionModel>(request);
             var result = _lotItemService.SaleShareTransaction(saleTransaction);
 
-            return _mapper.Map<SaleTransactionResultDto>(result);
+            if(result.IsFailed)
+            {
+                return BadRequest();
+            }
+
+            return Ok(_mapper.Map<SaleTransactionResultDto>(result));
         }
 
     }
