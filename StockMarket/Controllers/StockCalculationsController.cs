@@ -19,7 +19,6 @@ namespace StockMarket.Controllers
             _mapper = mapper;
         }
 
-
         /// <summary>
         /// Sale number of Shares
         /// </summary>
@@ -38,6 +37,5 @@ namespace StockMarket.Controllers
 
             return Ok(_mapper.Map<SaleTransactionResultDto>(result));
         }
-
     }
 }
