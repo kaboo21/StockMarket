@@ -11,24 +11,20 @@ namespace DataAccessLayer.Repositories
         {
             _context = context;
         }
-
         public List<LotItemEntity> GetAll()
         {
             var result = _context.LotItems.ToList();
             return result;
         }
-
         public LotItemEntity GetById(int id)
         {
             return _context.LotItems.FirstOrDefault(l => l.Id == id);
         }
-
         public void Add(LotItemEntity lot)
         {
             _context.LotItems.Add(lot);
             _context.SaveChanges();
         }
-
         public bool Update(LotItemEntity lot)
         {
             var lotDb = _context.LotItems.FirstOrDefault(l => l.Id == lot.Id);
@@ -41,7 +37,6 @@ namespace DataAccessLayer.Repositories
 
             return true;
         }
-
         public LotItemEntity? SaleLotItemNumber(int id, int numberToSale)
         {
             var lotDb = _context.LotItems.FirstOrDefault(l => l.Id == id);
@@ -51,13 +46,11 @@ namespace DataAccessLayer.Repositories
             }
 
             lotDb.RemainShareNumber -= numberToSale;
-            var result =_context.LotItems.Update(lotDb).Entity;
+            var result = _context.LotItems.Update(lotDb).Entity;
             _context.SaveChanges();
 
             return result;
         }
-
-
         public bool Delete(int id)
         {
             var lotDb = _context.LotItems.FirstOrDefault(l => l.Id == id);

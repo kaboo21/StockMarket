@@ -14,7 +14,6 @@ namespace DataAccessLayer.Data
         {
             optionsBuilder.UseInMemoryDatabase(databaseName: "StockDb");
         }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

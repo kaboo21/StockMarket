@@ -15,20 +15,17 @@ namespace BusinessLogicLayer.Services
             _lotItemRepo = lotItemRepository;
             _mapper = mapper;
         }
-
         public List<LotItemModel> GetAll()
         {
             var lotItemEntities = _lotItemRepo.GetAll();
 
             return _mapper.Map<List<LotItemModel>>(lotItemEntities);
         }
-
         public void AddLotItem(LotItemModel lotItem)
         {
             var lotItemEntity = _mapper.Map<LotItemEntity>(lotItem);
             _lotItemRepo.Add(lotItemEntity);
         }
-
         public SaleShareResultModel SaleShareTransaction(SaleTransactionModel saleTransaction)
         {
             var lotItemEntities = _lotItemRepo.GetAll();
@@ -41,7 +38,6 @@ namespace BusinessLogicLayer.Services
                 result.IsFailed = true;
                 return result;
             }
-
 
             var totalNumberToSale = saleTransaction.ShareNumber;
             var totalSaleAmount = 0m;
@@ -75,7 +71,6 @@ namespace BusinessLogicLayer.Services
             result.SoldSharesPrice = totalSaleAmount / saleTransaction.ShareNumber;
             result.RamainSharesPrice = totalRamainAmount / result.RemainShareNumber;
             result.TotalSaleResult = totalSaleDifference;
-
 
             return result;
         }

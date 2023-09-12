@@ -5,8 +5,6 @@ using DataAccessLayer.Entities;
 using DataAccessLayer.Repositories;
 using FakeItEasy;
 using FluentAssertions;
-using Microsoft.EntityFrameworkCore;
-using System.Net.NetworkInformation;
 
 namespace StockMarket.Tests.BusinessLogicLayer
 {
@@ -25,7 +23,6 @@ namespace StockMarket.Tests.BusinessLogicLayer
             //SUT:
             _lotItemService = new LotItemService(_lotItemRepo, _mapper);
         }
-
 
         [Theory]
         [InlineData(270, 40)]
@@ -51,7 +48,6 @@ namespace StockMarket.Tests.BusinessLogicLayer
             result.Should().BeOfType<SaleShareResultModel>();
             result.Should().BeEquivalentTo(expected);
         }
-
         [Theory]
         [InlineData(371, 40)]
         [InlineData(999, 40)]
