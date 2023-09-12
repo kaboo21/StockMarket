@@ -10,7 +10,6 @@ using System.Net.NetworkInformation;
 
 namespace StockMarket.Tests.BusinessLogicLayer
 {
-
     public class LotItemServiceTests
     {
         private readonly ILotItemRepository _lotItemRepo;
@@ -32,7 +31,6 @@ namespace StockMarket.Tests.BusinessLogicLayer
         [InlineData(270, 40)]
         public void LotItemService_SaleShareTransaction_ReturnExectedResult(int ShareNumber, decimal SharePrice)
         {
-
             //Arrange
             A.CallTo(() => _lotItemRepo.GetAll()).Returns(GetAllLotItems());
 
@@ -54,14 +52,11 @@ namespace StockMarket.Tests.BusinessLogicLayer
             result.Should().BeEquivalentTo(expected);
         }
 
-
-
         [Theory]
         [InlineData(371, 40)]
         [InlineData(999, 40)]
         public void LotItemService_SaleShareTransaction_ReturnFiledResult(int ShareNumber, decimal SharePrice)
         {
-
             //Arrange
             A.CallTo(() => _lotItemRepo.GetAll()).Returns(GetAllLotItems());
             var saleTransactionModel = new SaleTransactionModel() { ShareNumber = ShareNumber, SharePrice = SharePrice };
